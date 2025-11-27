@@ -1,0 +1,642 @@
+/* --- CSS Reset & Variáveis --- */
+:root {
+    --primary-color: #ff8200;
+    --dark-bg: #121212;
+    --card-bg: #1e1e1e;
+    --text-color: #f0f0f0;
+    --text-muted: #a0a0a0;
+    --border-color: #333;
+    --success-color: #28a745;
+    /* Usamos a cor primária para destaque, sem vermelho */
+    --highlight-color: var(--primary-color); 
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--dark-bg);
+    color: var(--text-color);
+    line-height: 1.7;
+}
+
+/* --- Layout & Componentes Gerais --- */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--text-color);
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.section-subtitle {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    text-align: center;
+    max-width: 700px;
+    margin: -20px auto 40px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+section {
+    padding: 80px 0;
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: #fff;
+    padding: 15px 35px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 50px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-transform: uppercase;
+    border: none;
+    cursor: pointer;
+}
+
+.cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(255, 130, 0, 0.2);
+}
+
+/* Animação Pulse */
+.pulse-button {
+    animation: pulse 2s infinite;
+    box-shadow: 0 0 0 rgba(255, 130, 0, 0.4);
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(255, 130, 0, 0.7); }
+    70% { box-shadow: 0 0 0 15px rgba(255, 130, 0, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(255, 130, 0, 0); }
+}
+
+/* --- Cabeçalho --- */
+.header {
+    background-color: rgba(18, 18, 18, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo img {
+    max-height: 40px;
+    width: auto;
+}
+
+.header-cta {
+    font-size: 0.9rem;
+    padding: 10px 20px;
+}
+
+/* --- Seção 1: Herói --- */
+.hero-section {
+    padding: 160px 0;
+    position: relative;
+    background-image: linear-gradient(rgba(18, 18, 18, 0.85), rgba(18, 18, 18, 0.85)), url('images/mockup-profissional.png');
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+}
+
+.hero-title {
+    font-size: 3.2rem;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.2;
+    max-width: 800px;
+    margin: 0 auto 20px;
+}
+
+.hero-subtitle {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    margin-bottom: 40px;
+    max-width: 650px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* --- Seção 2: Problema --- */
+.problem-section {
+    background-color: var(--card-bg);
+}
+
+.checklist {
+    max-width: 700px;
+    margin: 0 auto 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.check-item, .check-item-positive {
+    background-color: var(--dark-bg);
+    padding: 15px 20px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    border-left: 4px solid var(--primary-color);
+}
+
+.icon-x {
+    color: var(--primary-color);
+    font-weight: 700;
+    font-size: 1.5rem;
+    min-width: 24px;
+}
+.icon-check {
+    color: var(--success-color);
+    font-weight: 700;
+    font-size: 1.5rem;
+    min-width: 24px;
+}
+
+.agitation-text {
+    text-align: center;
+    max-width: 700px;
+    margin: 40px auto 0;
+    font-size: 1.1rem;
+    color: var(--text-muted);
+}
+
+/* --- Seção 3: Solução --- */
+.flow-visual {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    margin-top: 50px;
+    flex-wrap: wrap;
+}
+
+.flow-step {
+    text-align: center;
+}
+
+.flow-icon {
+    font-size: 3rem;
+    line-height: 1;
+}
+
+.flow-arrow {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+/* --- Seção 4: Entregáveis --- */
+.deliverables-section {
+     background-color: var(--card-bg);
+}
+.deliverables-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.deliverable-card {
+    background-color: var(--dark-bg);
+    padding: 30px;
+    border-radius: 10px;
+    border: 1px solid var(--border-color);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+.deliverable-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary-color);
+}
+.deliverable-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+/* --- Seção 5: Prova Social --- */
+.testimonial-card {
+    background-color: var(--card-bg);
+    border-radius: 10px;
+    padding: 40px;
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.testimonial-content {
+    flex: 2;
+    min-width: 300px;
+}
+
+.testimonial-quote {
+    font-size: 1.2rem;
+    font-style: italic;
+    color: var(--text-muted);
+    border-left: 3px solid var(--primary-color);
+    padding-left: 20px;
+    margin-bottom: 20px;
+}
+.testimonial-author {
+    font-weight: 600;
+    color: var(--text-color);
+}
+.testimonial-images {
+    flex: 1;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    min-width: 300px;
+}
+
+.testimonial-images figure {
+    text-align: center;
+}
+
+.testimonial-images img {
+    max-width: 100%;
+    width: 180px;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+/* --- Seção 6: Qualificação --- */
+.qualification-section {
+    background-color: var(--card-bg);
+}
+
+.check-item-positive {
+     border-left-color: var(--success-color);
+}
+
+/* --- Seção 7: Planos (Estilo Imagem) --- */
+
+/* Grid de 3 Colunas */
+.pricing-grid.three-col {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    max-width: 1100px;
+    margin: 0 auto;
+    align-items: stretch; /* Cards com mesma altura */
+}
+
+.pricing-card {
+    background-color: var(--card-bg); /* Dark Grey */
+    border: 1px solid #333;
+    border-radius: 12px;
+    padding: 40px 25px;
+    text-align: center; /* Centralizado como na imagem */
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    height: 100%;
+}
+
+.pricing-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Títulos dos Cards */
+.pricing-card h3 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #fff; /* Título Branco */
+    margin-bottom: 20px;
+}
+
+/* Container de Preços */
+.price-container {
+    margin-bottom: 20px;
+    min-height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Preço "De" Riscado */
+.old-price {
+    font-size: 1rem;
+    text-decoration: line-through;
+    color: var(--text-muted);
+    margin-bottom: 5px;
+    opacity: 0.8;
+}
+
+/* Preço Grande Laranja */
+.price {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--primary-color);
+    line-height: 1.2;
+    margin-bottom: 10px;
+}
+
+/* Detalhes de Preço */
+.price-details {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    line-height: 1.4;
+    margin-top: 5px;
+}
+
+.price-details p {
+    margin: 0;
+}
+
+/* Antigo descritivo de preço */
+.pricing-card .price-desc {
+    display: none;
+}
+
+/* --- Estilo Padrão: Lista de Check --- */
+.pricing-card ul {
+    list-style: none;
+    margin-bottom: 30px;
+    flex-grow: 1;
+    text-align: left; /* Itens alinhados a esquerda */
+    padding-left: 10px;
+}
+
+.pricing-card ul li {
+    margin-bottom: 15px;
+    color: var(--text-color);
+    font-size: 0.95rem;
+}
+
+/* --- Card Destaque (Vitrine) --- */
+.pricing-card.highlighted {
+    border: 2px solid var(--primary-color); /* Borda Laranja */
+    background-color: var(--card-bg); 
+    z-index: 10;
+    transform: scale(1.05);
+}
+
+/* Tag de Destaque */
+.highlight-tag {
+    position: absolute;
+    top: -18px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--primary-color); /* Fundo Laranja */
+    color: #fff; /* Texto branco */
+    font-weight: 700;
+    padding: 8px 25px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    white-space: nowrap;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+}
+
+.highlight-tag .star {
+    margin-right: 5px;
+}
+
+
+/* --- Botões dos Cards --- */
+.pricing-card .cta-button {
+    width: 100%;
+    padding: 15px 10px;
+    font-size: 0.9rem;
+    margin-top: auto;
+}
+
+
+/* --- Barra Fixa de Oferta (Sticky Footer) - NOVA ESTILIZAÇÃO --- */
+.sticky-offer-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--primary-color); /* Fundo Laranja Sólido */
+    padding: 15px 0;
+    z-index: 2000;
+    box-shadow: 0 -5px 20px rgba(0,0,0,0.3);
+    animation: slideUp 0.5s ease-out;
+    border-top: none;
+}
+
+@keyframes slideUp {
+    from { transform: translateY(100%); }
+    to { transform: translateY(0); }
+}
+
+.sticky-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.sticky-text {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Texto "Oferta especial termina em:" */
+.sticky-text span:first-child {
+    font-weight: 700;
+    color: #000; /* Preto */
+    font-size: 1.1rem;
+    letter-spacing: 0.5px;
+}
+
+/* Estilo dos Números e Unidades */
+.sticky-countdown {
+    font-family: 'Poppins', sans-serif; /* Fonte padrão, não mono */
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: #000; /* Preto */
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Espaço entre os blocos */
+}
+
+/* Caixas dos Números */
+.sticky-countdown span {
+    background-color: rgba(0, 0, 0, 0.15); /* Fundo levemente mais escuro que o laranja */
+    color: #000;
+    padding: 5px 10px;
+    border-radius: 6px;
+    min-width: 40px;
+    text-align: center;
+}
+
+.sticky-btn {
+    background-color: #fff; /* Branco */
+    color: #000; /* Preto */
+    padding: 10px 30px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.sticky-btn:hover {
+    background-color: #f0f0f0;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+}
+
+
+/* --- Seção 9: CTA Final --- */
+.final-cta-section {
+    background-color: var(--card-bg);
+}
+
+/* --- Seção 10: FAQ --- */
+.faq-accordion {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.faq-item {
+    background-color: var(--dark-bg);
+    border-radius: 8px;
+    margin-bottom: 10px;
+    border: 1px solid var(--border-color);
+}
+
+.faq-item summary {
+    font-size: 1.2rem;
+    font-weight: 600;
+    padding: 20px;
+    cursor: pointer;
+    position: relative;
+    outline: none;
+}
+.faq-item summary::-webkit-details-marker {
+    display: none;
+}
+
+.faq-item summary::after {
+    content: '+';
+    position: absolute;
+    right: 20px;
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    transition: transform 0.2s ease;
+}
+
+.faq-item[open] summary::after {
+    transform: rotate(45deg);
+}
+
+.faq-item p {
+    padding: 0 20px 20px;
+    color: var(--text-muted);
+}
+
+/* --- Seção 11: Rodapé --- */
+.footer {
+    background-color: #000;
+    padding: 40px 0;
+    text-align: center;
+    color: var(--text-muted);
+}
+
+.footer .social-links {
+    margin-top: 15px;
+}
+.footer a {
+    color: var(--primary-color);
+    text-decoration: none;
+    margin: 0 10px;
+    transition: color 0.3s ease;
+}
+.footer a:hover {
+    color: #fff;
+}
+
+/* --- Responsividade --- */
+@media (max-width: 900px) {
+    .pricing-grid.three-col {
+        grid-template-columns: 1fr;
+        max-width: 500px;
+    }
+    
+    .pricing-card.highlighted {
+        transform: scale(1);
+        margin: 20px 0;
+    }
+
+    .sticky-content {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+    
+    .sticky-text {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .sticky-countdown {
+        justify-content: center;
+    }
+}
+@media (max-width: 768px) {
+    .section-title {
+        font-size: 2rem;
+    }
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    .header .container {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .flow-visual {
+        flex-direction: column;
+    }
+    .flow-arrow {
+        transform: rotate(90deg);
+    }
+    .testimonial-card {
+        padding: 20px;
+        flex-direction: column;
+    }
+    .testimonial-images img {
+        width: 140px;
+    }
+}
